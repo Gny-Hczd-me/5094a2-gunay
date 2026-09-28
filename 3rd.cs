@@ -33,8 +33,6 @@ namespace Travel_Ticket
                 MessageBox.Show("Zəhmət olmasa, əsas xanaları (Ad, Soyad və İstiqamət) doldurun!", "Xəbərdarlıq", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
-            // Bütün xanalardakı məlumatları birləşdirib bir sətir formalaşdırırıq
             string biletMelumati = $"Sərnişin: {txtAdSoyad.Text} | FIN: {txtFIN.Text} | Marşrut: {cmbHaradan.Text} -> {cmbHaraya.Text} | Tarix/Saat: {mskdpTarix.Text} {mskdpSaat.Text} | Yer: {txtYer.Text} | Tel: {mskdTelefon.Text}";
 
             listBox1.Items.Add(biletMelumati);
