@@ -14,7 +14,7 @@ namespace Cafe_System
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            if (listBox1.SelectedIndex != -1) // Əgər nəsə seçilibsə
+            if (listBox1.SelectedIndex != -1) 
             {
                 string selectedItem = listBox1.SelectedItem.ToString();
                 string[] parts = selectedItem.Split('-'); 
@@ -43,7 +43,7 @@ namespace Cafe_System
         }
         private void btnYekunHesab_Click(object sender, EventArgs e)
         {
-            if (listBox1.Items.Count > 0) // Səbətdə yemək varsa
+            if (listBox1.Items.Count > 0) 
             {
                 txtHesab.Text = total.ToString("0.00"); 
             }
