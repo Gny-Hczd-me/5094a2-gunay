@@ -1,0 +1,44 @@
+"""Database layer: yalnız SQL Server ilə əlaqəli funksiyalar."""
+
+import pyodbc
+
+from config import DB_DRIVER, DB_NAME, DB_SERVER
+
+
+def create_connection():
+    connection_string = (
+        f"DRIVER={{{DB_DRIVER}}};"
+        f"SERVER={DB_SERVER};"
+        f"DATABASE={DB_NAME};"
+        "Trusted_Connection=yes;"
+        "TrustServerCertificate=yes;"
+    )
+    return pyodbc.connect(connection_string)
+
+
+def add_student(student_name, student_score):
+    with create_connection() as connection:
+        cursor = connection.cursor()
+        cursor.execute(
+            "INSERT INTO Students (Name, Score) VALUES (?, ?)",
+            student_name,
+            student_score,
+        )
+        connection.commit()
+
+
+def get_students():
+    with create_connection() as connection:
+        cursor = connection.cursor()
+        cursor.execute("SELECT Name, Score FROM Students ORDER BY Id")
+        return [(row.Name, row.Score) for row in cursor.fetchall()]
+
+
+def get_student(search_text):
+    with create_connection() as connection:
+        cursor = connection.cursor()
+        cursor.execute(
+            "SELECT Name, Score FROM Students WHERE Name LIKE ? ORDER BY Id",
+            f"%{search_text}%",
+        )
+        return [(row.Name, row.Score) for row in cursor.fetchall()]
