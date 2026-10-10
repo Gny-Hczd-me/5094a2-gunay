@@ -6,7 +6,7 @@ Streamlit və SQL Server istifadə edərək tələbə nəticələrini idarə ed�
 - Tələbə əlavə etmək (ad və bal)
 - Bütün tələbələrin siyahısı (Name, Score, Grade)
 - Ada görə axtarış
-- Statistika: Total Students, Average, Highest, Lowest
+- Statistika: Total Students, Average, Highest, Lowest 
 - `calculate_grade(score)` ilə qiymət hesablanması
 
 ## Layihə strukturu
